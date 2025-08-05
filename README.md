@@ -15,7 +15,7 @@ It allows:
 ### 1. Clone Repository
 ```bash
 git clone https://github.com/SyahmieRazi97/front-end-test-vista.git
-cd front-end-test-vista/frontend_vista
+cd front-end-test-vista/frontend_test_vista
 flutter pub get
 ```
 
