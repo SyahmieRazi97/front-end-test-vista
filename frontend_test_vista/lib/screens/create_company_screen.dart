@@ -14,7 +14,14 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Company')),
+      appBar: AppBar(
+        title: Text(
+          'Add Company',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black54,
+      ),
+      backgroundColor: Colors.grey,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -26,7 +33,11 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
                 controller: _nameController,
                 decoration: InputDecoration(
                   labelText: 'Company Name',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter a company name' : null,
@@ -36,7 +47,11 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
                 controller: _regNumberController,
                 decoration: InputDecoration(
                   labelText: 'Registration Number',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter registration number' : null,
@@ -44,8 +59,11 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.lightGreen,
                   padding: EdgeInsets.symmetric(vertical: 14),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
@@ -56,8 +74,11 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
                     Navigator.pop(context, true);
                   }
                 },
-                child: Text('Save'),
-              )
+                child: Text(
+                  'Save',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
             ],
           ),
         ),

@@ -21,7 +21,14 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Service')),
+      appBar: AppBar(
+        title: Text(
+          'Add Service',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black54,
+      ),
+      backgroundColor: Colors.grey,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -78,6 +85,7 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.lightGreen,
                   padding: EdgeInsets.symmetric(vertical: 14),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),

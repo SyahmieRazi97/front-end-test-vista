@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/company_provider.dart';
+import '../provider/company_provider.dart';
 import 'create_company_screen.dart';
 import 'create_service_screen.dart';
 
@@ -21,7 +21,11 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
     final provider = Provider.of<CompanyProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Companies')),
+      appBar: AppBar(
+        title: Text('Companies', style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.black54,
+      ),
+      backgroundColor: Colors.grey,
       body: provider.isLoading
           ? Center(child: CircularProgressIndicator())
           : ListView.builder(
@@ -29,13 +33,20 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
               itemBuilder: (context, index) {
                 final company = provider.companies[index];
                 return ExpansionTile(
-                  title: Text('${company.name} (${company.registrationNumber})'),
+                  title: Text(
+                    '${company.name} (${company.registrationNumber})',
+                    style: TextStyle(color: Colors.black),
+                  ),
                   children: company.services.map((service) => Card(
                     margin: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-                    color: Colors.grey[100],
+                    color: Colors.white,
                     child: ListTile(
-                      title: Text(service.name),
-                      subtitle: Text('${service.description} - RM${service.price}'),
+                      title: Text(service.name,
+                          style: TextStyle(color: Colors.black)),
+                      subtitle: Text(
+                        '${service.description} - RM${service.price}',
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
                     ),
                   )).toList(),
                 );
@@ -45,6 +56,7 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            backgroundColor: Colors.black, 
             heroTag: "addCompany",
             onPressed: () async {
               bool? added = await Navigator.push(
@@ -53,11 +65,12 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
               );
               if (added == true) provider.fetchCompanies();
             },
-            child: Icon(Icons.business),
+            child: Icon(Icons.business, color: Colors.white),
             tooltip: "Add Company",
           ),
           SizedBox(height: 10),
           FloatingActionButton(
+            backgroundColor: Colors.black,
             heroTag: "addService",
             onPressed: () async {
               bool? added = await Navigator.push(
@@ -68,7 +81,7 @@ class _CompanyListScreenState extends State<CompanyListScreen> {
               );
               if (added == true) provider.fetchCompanies();
             },
-            child: Icon(Icons.add),
+            child: Icon(Icons.add, color: Colors.white),
             tooltip: "Add Service",
           ),
         ],
