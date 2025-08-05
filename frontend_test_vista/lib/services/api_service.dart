@@ -4,7 +4,7 @@ import '../models/company.dart';
 import '../models/service.dart';
 
 class ApiService {
-  static const String baseUrl = 'https://<codespace-name>-5000.app.github.dev';
+  static const String baseUrl = 'https://cautious-invention-4j645r4g64q9hg6j-5000.app.github.dev';
 
   static Future<List<Company>> getCompanies() async {
     final response = await http.get(Uri.parse('$baseUrl/companies'));
