@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'screens/company_list_screen.dart';
+import 'providers/company_provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => CompanyProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,10 +21,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.blueAccent,
-          elevation: 1,
-        ),
       ),
       home: CompanyListScreen(),
     );
