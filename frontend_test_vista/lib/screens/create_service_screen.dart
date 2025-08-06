@@ -76,11 +76,22 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
                 controller: _priceController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                  labelText: 'Price (RM)',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  labelText: 'Price',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
-                validator: (value) =>
-                    value!.isEmpty ? 'Please enter price' : null,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a price';
+                  }
+                  if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                    return 'Only numbers are allowed';
+                  }
+                return null;
+                },
               ),
               SizedBox(height: 20),
               ElevatedButton(
