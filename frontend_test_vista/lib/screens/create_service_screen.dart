@@ -39,7 +39,10 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
               DropdownButtonFormField<Company>(
                 decoration: InputDecoration(
                   labelText: 'Select Company',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
                 items: widget.companies.map((company) {
                   return DropdownMenuItem(
@@ -56,7 +59,10 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
                 controller: _nameController,
                 decoration: InputDecoration(
                   labelText: 'Service Name',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter service name' : null,
@@ -66,7 +72,10 @@ class _CreateServiceScreenState extends State<CreateServiceScreen> {
                 controller: _descriptionController,
                 decoration: InputDecoration(
                   labelText: 'Description',
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                 ),
                 validator: (value) =>
                     value!.isEmpty ? 'Please enter description' : null,
