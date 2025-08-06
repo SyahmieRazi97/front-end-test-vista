@@ -19,7 +19,7 @@ cd front-end-test-vista/frontend_test_vista
 flutter pub get
 ```
 
-#### For Web: (I use web because i using codespace)
+#### For Web: (I use web because I using codespace)
 ```bash
 flutter config --enable-web
 flutter run -d web-server
