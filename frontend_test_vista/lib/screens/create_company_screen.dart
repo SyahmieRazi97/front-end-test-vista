@@ -45,6 +45,7 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
               SizedBox(height: 16),
               TextFormField(
                 controller: _regNumberController,
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: 'Registration Number',
                   border: OutlineInputBorder(
@@ -53,8 +54,15 @@ class _CreateCompanyScreenState extends State<CreateCompanyScreen> {
                   filled: true,
                   fillColor: Colors.white,
                 ),
-                validator: (value) =>
-                    value!.isEmpty ? 'Please enter registration number' : null,
+                validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter registration number';
+                }
+                if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                  return 'Only numbers are allowed';
+                }
+                  return null;
+                },
               ),
               SizedBox(height: 20),
               ElevatedButton(
